@@ -10,7 +10,6 @@ router.get("/", async (_, res) => {
 /* GET Statistics */
 router.get("/statistics", async (_, res) => {
   const count = await getAsync("added_todos");
-  console.log(count);
   res.send({
     added_todos: count,
   });
@@ -50,7 +49,7 @@ singleRouter.get("/", async (req, res) => {
 });
 
 /* PUT todo. */
-singleRouter.put("/:id", async (req, res) => {
+singleRouter.put("/", async (req, res) => {
   if (req.todo) {
     const updatedTodo = await Todo.findByIdAndUpdate(req.todo._id, req.body);
     res.send(updatedTodo);
