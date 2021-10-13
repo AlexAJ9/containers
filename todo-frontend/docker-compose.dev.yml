@@ -1,9 +1,10 @@
 version: "3.8"
 
 services:
-  react:
+  app:
     image: todo-frontend
     environment:
+      $HOSTNAME: app
       REACT_APP_BACKEND_URL: "http://localhost:3001"
     build:
       context: .
@@ -13,3 +14,8 @@ services:
     ports:
       - 3000:3000
     container_name: todo-frontend
+    networks:
+      - todo
+networks:
+  todo:
+    name: todo
