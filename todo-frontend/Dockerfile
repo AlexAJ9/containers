@@ -2,14 +2,14 @@ FROM node:16 as test-stage
 WORKDIR /usr/src/app
 COPY . .
 RUN npm ci
-ENV REACT_APP_BACKEND_URL='http://localhost:3000'
+ENV REACT_APP_BACKEND_URL='http://localhost:8080/api/'
 RUN CI=true npm run test
 
 FROM node:16 as build-stage
 WORKDIR /usr/src/app
 COPY . .
 RUN npm ci
-ENV REACT_APP_BACKEND_URL='http://localhost:3000'
+ENV REACT_APP_BACKEND_URL='http://localhost:8080/api/'
 RUN npm run build
 
 

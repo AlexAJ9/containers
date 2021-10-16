@@ -2,10 +2,10 @@ version: "3.8"
 
 services:
   app:
-    image: todo-frontend
+    image: todo-frontend-dev
     environment:
       $HOSTNAME: app
-      REACT_APP_BACKEND_URL: "http://localhost:3001"
+      REACT_APP_BACKEND_URL: "http://localhost:8080/api"
     build:
       context: .
       dockerfile: dev.Dockerfile
